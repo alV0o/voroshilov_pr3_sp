@@ -41,6 +41,7 @@ union TypeOfFigures {
 struct Figures {
 	char color[255];
 	float area;
+	char nameOfType[10];
 
 	TypeOfFigures type;
 };
@@ -49,32 +50,37 @@ int main()
 {
 	Figures figures[4];
 
+
 	figures[0].type.circle.radius = 5;
+	strcpy_s(figures[0].nameOfType, "circle");
 	strcpy_s(figures[0].color, "red");
 	figures[0].area = figures[0].type.circle.Area(); //78.5
 
-	std::cout << figures[0].area << " " << figures[0].color << std::endl;
+	std::cout << figures[0].nameOfType << " " << figures[0].area << " " << figures[0].color << std::endl;
 
 	figures[1].type.rectangle.firstLen = 15;
 	figures[1].type.rectangle.secondLen = 10;
+	strcpy_s(figures[1].nameOfType, "rectangle");
 	strcpy_s(figures[1].color, "blue");
 	figures[1].area = figures[1].type.rectangle.Area(); //150
 	
-	std::cout << figures[1].area << " " << figures[1].color << std::endl;
+	std::cout << figures[1].nameOfType << " " << figures[1].area << " " << figures[1].color << std::endl;
 
 	figures[2].type.circle.radius = 3;
+	strcpy_s(figures[2].nameOfType, "circle");
 	strcpy_s(figures[2].color, "magenta");
 	figures[2].area = figures[2].type.circle.Area(); //28.26
 
-	std::cout << figures[2].area << " " << figures[2].color << std::endl;
+	std::cout << figures[2].nameOfType << " " << figures[2].area << " " << figures[2].color << std::endl;
 
 	figures[3].type.triangle.firstLen = 6;
 	figures[3].type.triangle.secondLen = 10;
 	figures[3].type.triangle.thirdLen = 9;
+	strcpy_s(figures[3].nameOfType, "triangle");
 	strcpy_s(figures[3].color, "yellow");
 	figures[3].area = figures[3].type.triangle.Area(); //26.6634
 
-	std::cout << figures[3].area << " " << figures[3].color << std::endl << std::endl;
+	std::cout << figures[3].nameOfType << " " << figures[3].area << " " << figures[3].color << std::endl << std::endl;
 
 
 
@@ -86,7 +92,7 @@ int main()
 				figures[i] = temp;
 			}
 		}
-		std::cout << figures[i].area << " " << figures[i].color << std::endl;
+		std::cout << figures[i].nameOfType << " " << figures[i].area << " " << figures[i].color << std::endl;
 	}
 }
 
